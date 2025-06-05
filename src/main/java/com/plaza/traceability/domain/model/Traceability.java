@@ -1,5 +1,7 @@
 package com.plaza.traceability.domain.model;
 
+import java.util.Date;
+
 public class Traceability {
 
     private Long idOrder;
@@ -10,11 +12,14 @@ public class Traceability {
 
     private Status status;
 
-    public Traceability(Long idOrder, String idCustomer, Status statusBefore, Status status) {
+    private Date dateTime;
+
+    public Traceability(Long idOrder, String idCustomer, Status statusBefore, Status status, Date dateTime) {
         this.idOrder = idOrder;
         this.idCustomer = idCustomer;
         this.statusBefore = statusBefore;
         this.status = status;
+        this.dateTime = dateTime;
     }
 
     public Long getIdOrder() {
@@ -47,5 +52,13 @@ public class Traceability {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 }

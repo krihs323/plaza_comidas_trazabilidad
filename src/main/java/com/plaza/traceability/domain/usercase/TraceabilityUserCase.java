@@ -5,7 +5,6 @@ import com.plaza.traceability.domain.model.*;
 import com.plaza.traceability.domain.spi.ITraceabilityPersistencePort;
 import com.plaza.traceability.domain.spi.IUserPersistencePort;
 import com.plaza.traceability.domain.validation.TraceabilityValidations;
-import com.plaza.traceability.domain.validation.Validate;
 
 public class TraceabilityUserCase implements ITraceabilityServicePort {
 

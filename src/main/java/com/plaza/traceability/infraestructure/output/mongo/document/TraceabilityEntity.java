@@ -3,6 +3,8 @@ package com.plaza.traceability.infraestructure.output.mongo.document;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document(collection = "logs")
 public class TraceabilityEntity {
 
@@ -17,12 +19,15 @@ public class TraceabilityEntity {
 
     private String status;
 
-    public TraceabilityEntity(String id, Long idOrder, Long idCustomer, String statusBefore, String status) {
+    private Date dateTime;
+
+    public TraceabilityEntity(String id, Long idOrder, Long idCustomer, String statusBefore, String status, Date dateTime) {
         this.id = id;
         this.idOrder = idOrder;
         this.idCustomer = idCustomer;
         this.statusBefore = statusBefore;
         this.status = status;
+        this.dateTime = dateTime;
     }
 
     public String getId() {
@@ -63,5 +68,13 @@ public class TraceabilityEntity {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 }
