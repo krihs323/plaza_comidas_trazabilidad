@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/api/trazabilidad")
 public class TraceabilityRestController {
@@ -47,6 +49,24 @@ public class TraceabilityRestController {
         return ResponseEntity.ok(traceabilityHandler.getAllLogs(page, size, sortBy, sortDir));
     }
 
+    @Operation(summary = "Get reports by owner")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Logs All by orders", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content)
+    })
+    @GetMapping("/reports/orders")
+    public ResponseEntity<List<TraceabilityOrderReportResponse>> getReportOrders() {
+        return ResponseEntity.ok(traceabilityHandler.getReportByOrder());
+    }
 
+    @Operation(summary = "Get reports by employees")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Logs All by employees", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content)
+    })
+    @GetMapping("/reports/employees")
+    public ResponseEntity<List<TraceabilityEmployeeReportResponse>> getReportemployees() {
+        return ResponseEntity.ok(traceabilityHandler.getReportByEmployee());
+    }
 
 }
