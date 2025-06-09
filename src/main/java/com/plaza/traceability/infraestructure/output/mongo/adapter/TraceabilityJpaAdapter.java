@@ -57,7 +57,7 @@ public class TraceabilityJpaAdapter implements ITraceabilityPersistencePort {
     @Override
     public List<TraceabilityOrderReport> getAllOrdersByRestaurant(Long idRestaurantEmployee) {
 
-        List<TraceabilityEntity> traceabilityEntityList = traceabilityRepository.findByIdRestaurant(1L);
+        List<TraceabilityEntity> traceabilityEntityList = traceabilityRepository.findByIdRestaurant(idRestaurantEmployee);
 
         return traceabilityEntityList.stream()
                 .collect(Collectors.groupingBy(TraceabilityEntity::getIdOrder))
@@ -71,7 +71,7 @@ public class TraceabilityJpaAdapter implements ITraceabilityPersistencePort {
                             .findFirst().orElseThrow();
 
                     Optional<Date> timeReady = traceabilityEntities.stream()
-                            .filter(c -> Status.LISTO.name().equals(c.getStatus()))
+                            .filter(c -> Status.EN_PREPARACION.name().equals(c.getStatus()))
                             .map(TraceabilityEntity::getDateTime)
                             .min(Comparator.naturalOrder());
 
@@ -92,14 +92,14 @@ public class TraceabilityJpaAdapter implements ITraceabilityPersistencePort {
                         return null;
                     }
                 }).filter(Objects::nonNull)
-                .sorted(Comparator.comparing(TraceabilityOrderReport::getTime).reversed()) // Orden descendente
+                .sorted(Comparator.comparing(TraceabilityOrderReport::getTime).reversed())
                 .toList();
 
     }
 
     @Override
     public List<TraceabilityEmployeeReport> getReportEmployeeByRestaurant(Long idRestaurantEmployee) {
-
+        //TODO Test unitarios de este proyecto subir cover
         List<TraceabilityEntity> traceabilityEntityList = traceabilityRepository.findByIdRestaurant(1L);
 
         List<TraceabilityEmployeeReport> traceabilityOrderReportList = traceabilityEntityList.stream()
@@ -114,7 +114,7 @@ public class TraceabilityJpaAdapter implements ITraceabilityPersistencePort {
                             .findFirst().orElseThrow();
 
                     Optional<Date> timeReady = traceabilityEntities.stream()
-                            .filter(c -> Status.LISTO.name().equals(c.getStatus()))
+                            .filter(c -> Status.EN_PREPARACION.name().equals(c.getStatus()))
                             .map(TraceabilityEntity::getDateTime)
                             .min(Comparator.naturalOrder());
 

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-@FeignClient(name = "usuarios", url = "http://localhost:8080")
+@FeignClient(name = "usuarios", url = "${feign.user.url}")
 public interface IUserFeignClient {
 
     @GetMapping("/api/user/rol/id/{id}")
