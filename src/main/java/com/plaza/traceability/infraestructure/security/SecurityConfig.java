@@ -41,6 +41,7 @@ public class SecurityConfig {
                         req.requestMatchers(WHITE_LIST_URL).permitAll()
                                 .requestMatchers("/api/trazabilidad/create/**").hasAnyRole(Role.CUSTOMER.name(), Role.EMPLOYEE.name())
                                 .requestMatchers("/api/trazabilidad/all/**").hasRole(Role.CUSTOMER.name())
+                                .requestMatchers("/api/trazabilidad/reports/**").hasRole(Role.OWNER.name())
                                 .anyRequest()
                                 .authenticated()
                 )

@@ -14,10 +14,20 @@ public class TraceabilityRequest {
 
         private Long idCustomer;
 
+        private String nameCustomer;
+
+        private String restaurantName;
+
         private Status statusBefore;
 
         private String status;
 
         private Date dateTime;
+
+        private Long idRestaurant;
+
+        private String employeeName;
+
+        private Long idEmployee;
 
 }
