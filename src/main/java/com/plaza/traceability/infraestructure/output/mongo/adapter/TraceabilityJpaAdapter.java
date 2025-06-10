@@ -99,8 +99,8 @@ public class TraceabilityJpaAdapter implements ITraceabilityPersistencePort {
 
     @Override
     public List<TraceabilityEmployeeReport> getReportEmployeeByRestaurant(Long idRestaurantEmployee) {
-        //TODO Test unitarios de este proyecto subir cover
-        List<TraceabilityEntity> traceabilityEntityList = traceabilityRepository.findByIdRestaurant(1L);
+        //TODO Test unitarios de este proyecto subir cover - AJUSTADO
+        List<TraceabilityEntity> traceabilityEntityList = traceabilityRepository.findByIdRestaurant(idRestaurantEmployee);
 
         List<TraceabilityEmployeeReport> traceabilityOrderReportList = traceabilityEntityList.stream()
                 .collect(Collectors.groupingBy(TraceabilityEntity::getIdOrder))
