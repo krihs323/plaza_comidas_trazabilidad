@@ -13,17 +13,6 @@ public class User {
     public User() {
     }
 
-    public User(String rol, Long idUser) {
-        this.rol = rol;
-        this.idUser = idUser;
-    }
-
-    public User(String rol, Long idUser, Long idRestaurantEmployee) {
-        this.rol = rol;
-        this.idUser = idUser;
-        this.idRestaurantEmployee = idRestaurantEmployee;
-    }
-
     public User(String rol, Long idUser, Long idRestaurantEmployee, String phoneNumber) {
         this.rol = rol;
         this.idUser = idUser;

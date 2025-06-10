@@ -37,19 +37,6 @@ public class Traceability {
         this.idEmployee = idEmployee;
     }
 
-    private Traceability(Builder builder) {
-        this.idOrder = builder.idOrder;
-        this.idCustomer = builder.idCustomer;
-        this.statusBefore = builder.statusBefore;
-        this.status = builder.status;
-        this.dateTime = builder.dateTime;
-        this.nameCustomer = builder.nameCustomer;
-        this.restaurantName = builder.restaurantName;
-        this.idRestaurant = builder.idRestaurant;
-        this.employeeName = builder.employeeName;
-        this.idEmployee =builder.idEmployee;
-    }
-
 
     public Long getIdOrder() {
        return idOrder;
@@ -131,70 +118,4 @@ public class Traceability {
         this.idEmployee = idEmployee;
     }
 
-    public static class Builder {
-        private Long idOrder;
-        private String idCustomer;
-        private Status statusBefore;
-        private Status status;
-        private Date dateTime;
-        private String nameCustomer;
-        private String restaurantName;
-        private Long idRestaurant;
-        private String employeeName;
-        private Long idEmployee;
-
-        public Builder idOrder(Long idOrder) {
-            this.idOrder = idOrder;
-            return this; // Retorna el propio Builder para encadenar llamadas
-        }
-
-        public Builder idCustomer(String idCustomer) {
-            this.idCustomer = idCustomer;
-            return this;
-        }
-
-        public Builder statusBefore(Status statusBefore) {
-            this.statusBefore = statusBefore;
-            return this;
-        }
-
-        public Builder status(Status status) {
-            this.status = status;
-            return this;
-        }
-
-        public Builder dateTime(Date dateTime) {
-            this.dateTime = dateTime;
-            return this;
-        }
-
-        public Builder nameCustomer(String nameCustomer) {
-            this.nameCustomer = nameCustomer;
-            return this;
-        }
-
-        public Builder restaurantName(String restaurantName) {
-            this.restaurantName = restaurantName;
-            return this;
-        }
-
-        public Builder idRestaurant(Long idRestaurant) {
-            this.idRestaurant = idRestaurant;
-            return this;
-        }
-
-        public Builder employeeName(String employeeName) {
-            this.employeeName = employeeName;
-            return this;
-        }
-
-        public Builder idEmployee(Long idEmployee) {
-            this.idEmployee = idEmployee;
-            return this;
-        }
-
-        public Traceability build() {
-            return new Traceability(this);
-        }
-    }
 }
